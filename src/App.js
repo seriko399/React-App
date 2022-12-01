@@ -1,12 +1,21 @@
-import "./App.css";
-
-import React, { userState } from "react";
+import React from "react";
+import Tiles from './components/tiles/tiles';
+import './App.css';
 import Navbar from "./components/navbar/Navbar";
 
 export default function App() {
     return (
-        <div>
-            <Navbar />
-        </div>
-    );
+        <React.Fragment>
+            <div>
+                <Navbar />
+            </div>
+            <div className={'container'}>
+                <div className={'side-space'}></div>
+                <div className={'main'}>
+                    <Tiles />
+                </div>
+                <div className={'side-space'}></div>
+            </div>
+        </React.Fragment>
+  );
 }

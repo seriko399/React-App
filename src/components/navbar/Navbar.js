@@ -1,15 +1,63 @@
-import React, { Component, useState } from "react";
 import "./Navbar.css";
 import { CSSTransition } from "react-transition-group";
+import { motion } from "framer-motion";
+import React, { Component, useRef, useState } from "react";
+import { render } from "@testing-library/react";
+
+import { ReactComponent as EditIcon } from "../../resources/edit.svg";
+import { ReactComponent as AddIcon } from "../../resources/add.svg";
 
 export default class Navbar extends Component {
     render() {
         return (
-            <nav className="navbar">
-                <ul className="navbar-nav"> {this.props.children} </ul>
-            </nav>
+            <div>
+                <Header />
+            </div>
         );
     }
+}
+
+export function Header() {
+    const [isAnimating, setIsAnimating] = useState(false);
+    return (
+        <div>
+            <motion.div
+                className="navbar"
+                animate={{
+                    height: isAnimating ? 750 : 35,
+                    transition: isAnimating
+                        ? {
+                              type: "spring",
+                              duration: 0.4,
+                              stiffness: 100,
+                              damping: 15,
+                          }
+                        : {
+                              type: "tween",
+                              duration: 0.4,
+                              stiffness: 100,
+                              damping: 15,
+                          },
+                }}
+            >
+                <ul className="navbar-nav">
+                    <NavItem icon={<EditIcon />} />
+                    <motion.div
+                        className="add"
+                        onClick={() => setIsAnimating(!isAnimating)}
+                        animate={{
+                            rotate: isAnimating ? 225 : 0,
+                        }}
+                        transition={{
+                            duration: 0.4,
+                        }}
+                    >
+                        <NavItem icon={<AddIcon />} />
+                    </motion.div>
+                </ul>
+            </motion.div>
+        </div>
+    );
 }
 
 export function NavItem(props) {

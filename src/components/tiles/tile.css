@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
 body {
     background-color: #EEEEEE;
 }
+
 .tile {
     background-color: #EEEEEE;
     width: 200px;
@@ -12,6 +14,7 @@ body {
     box-shadow: 0px 2px 5px -1px rgba(50, 50, 93, 0.25), 0px 1px 3px -1px rgba(0, 0, 0, 0.3), inset 0px -2px 6px rgba(10, 37, 64, 0.35);
     transition: 0.3s;
 }
+
 .tile span {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
@@ -19,6 +22,7 @@ body {
     align-self: flex-end;
     margin: 35px;
 }
+
 .tile:hover {
     box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25), 0px 30px 60px -30px rgba(0, 0, 0, 0.3), inset 0px -2px 6px rgba(10, 37, 64, 0.35);
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
